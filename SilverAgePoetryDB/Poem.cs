@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace SilverAgePoetryDB
 {
     [Serializable]
-    [XmlRoot("Poem")]
+
     public class Poem
     {
         public string Name { get; set; }

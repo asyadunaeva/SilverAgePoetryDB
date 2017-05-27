@@ -28,7 +28,10 @@ namespace SilverAgePoetryDB
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
+            Poem poem = new SilverAgePoetryDB.Poem();
+            poem.Name = "AAA";
+            poem.Text = "BBB";
+            DB.AddPoem(poem);
         }
 
         private void PoemssButton_Click(object sender, RoutedEventArgs e)
@@ -38,7 +41,7 @@ namespace SilverAgePoetryDB
 
         private void AuthorsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DB.DeletePoem(DB.Poems[0]);
         }
     }
 }
