@@ -5,19 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SilverAgePoetryDB"
         mc:Ignorable="d"
-        Title="PoemsWindow" Height="554.887" Width="609.022">
+        Title="PoemsWindow" Height="554.887" Width="685.714">
     <Grid>
-        <TextBox x:Name="poemText" HorizontalAlignment="Left" Height="343" Margin="347,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Cursor="ScrollNS" IsReadOnly="True"/>
+        <TextBox x:Name="poemText" HorizontalAlignment="Left" Height="343" Margin="347,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="321" Cursor="ScrollNS" IsReadOnly="True"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="347,10,0,0" TextWrapping="Wrap" Text="Название:" VerticalAlignment="Top" Width="99"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="347,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"><Run Text="Автор"/><Run Text=":"/></TextBlock>
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="347,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"><Run Text="Дата написания"/><Run Text=":"/></TextBlock>
         <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="347,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" Text="Дата публикации:"/>
-        <TextBlock x:Name="poemNameField" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="451,10,0,0" Width="140"/>
-        <TextBlock x:Name="authorNameField" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="451,43,0,0" Width="140"/>
-        <TextBlock x:Name="writingDateField" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="451,80,0,0" Width="140"/>
-        <TextBlock x:Name="publicationDateField" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="451,118,0,0" Width="140"/>
+        <TextBlock x:Name="poemNameField" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="451,10,0,0" Width="217"/>
+        <TextBlock x:Name="authorNameField" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="451,43,0,0" Width="217"/>
+        <TextBlock x:Name="writingDateField" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="451,80,0,0" Width="217"/>
+        <TextBlock x:Name="publicationDateField" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="451,118,0,0" Width="217"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Поиск по названию:" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" TextChanged="textBox_TextChanged"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="278" Margin="10,80,0,0" VerticalAlignment="Top" Width="258" ItemsSource="{Binding}" SelectionChanged="listBox_SelectionChanged"/>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="163,363,0,0" VerticalAlignment="Top" Width="105" Height="28" Click="AddButton_Click"/>
+        <Button x:Name="EditButton" Content="Изменить" HorizontalAlignment="Left" Margin="163,396,0,0" VerticalAlignment="Top" Width="105" Height="28"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="163,429,0,0" VerticalAlignment="Top" Width="105" Height="28"/>
+        <Button x:Name="GoBackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,429,0,0" VerticalAlignment="Top" Width="105" Height="28" Click="GoBackButton_Click"/>
     </Grid>
 </Window>

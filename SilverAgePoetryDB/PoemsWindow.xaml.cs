@@ -29,6 +29,8 @@ namespace SilverAgePoetryDB
 
             NamesListBox = new ObservableCollection<string>();
 
+            DB.Poems.Add(new SilverAgePoetryDB.Poem { Name = "я помню чудное мгновение" });
+
             foreach (Poem poem in DB.Poems)
             {
                 NamesListBox.Add(poem.Name);
@@ -58,12 +60,46 @@ namespace SilverAgePoetryDB
             string selectedPoemName = listBox.SelectedItem.ToString();
             selectedPoem = DB.Poems.Find(x => x.Name == selectedPoemName);
 
-            poemNameField.Text = selectedPoem.Name;
-            authorNameField.Text = selectedPoem.Author.Name;
-            writingDateField.Text = selectedPoem.WritingStartDate.ToShortDateString() + "-" + selectedPoem.WritingEndDate.ToShortDateString();
-            publicationDateField.Text = selectedPoem.PublicationDate.ToShortDateString();
+            poemNameField.Text = selectedPoem.Name ?? null;
+            if (DB.Authors.Contains(selectedPoem.Author))
+            {
+                authorNameField.Text = selectedPoem.Author.Name;
+            }
+            else
+            {
+                authorNameField.Text = "Автор не указан";
+            }
+            if (selectedPoem.WritingStartDate != null && selectedPoem.WritingEndDate != null)
+            {
+                writingDateField.Text = selectedPoem.WritingStartDate + "-" + selectedPoem.WritingEndDate;
+            }
+            else
+            {
+                writingDateField.Text = "Дата написания не указана";
+            }
+            if (selectedPoem.PublicationDate != null)
+            {
+                publicationDateField.Text = selectedPoem.PublicationDate;
+            }
+            else
+            {
+                publicationDateField.Text = "Дата публикации не указана";
+            }
+            poemText.Text = selectedPoem.Text ?? "Текст стиха отсутствует в базе!";
 
+        }
 
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            PoemAddWindow poemAddWindow = new PoemAddWindow();
+            poemAddWindow.Show();
+        }
+
+        private void GoBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

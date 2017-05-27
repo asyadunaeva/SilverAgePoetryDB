@@ -13,9 +13,9 @@ namespace SilverAgePoetryDB
     {
         public string Name { get; set; }
         public Author Author { get; set; }
-        public DateTime WritingStartDate { get; set; }
-        public DateTime WritingEndDate { get; set; }
-        public DateTime PublicationDate { get; set; }
+        public String WritingStartDate { get; set; }
+        public String WritingEndDate { get; set; }
+        public String PublicationDate { get; set; }
         public string Text { get; set; }
     }
 }

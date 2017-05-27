@@ -31,7 +31,7 @@ namespace SilverAgePoetryDB
                 string randomPoemText;
                 Random rnd = new Random();
                 Poem randomPoem = DB.Poems[rnd.Next(DB.Poems.Count)];
-                randomPoemText = randomPoem.Name + "\n" + randomPoem.Author.Name + "\n" + randomPoem.Text;
+                randomPoemText = randomPoem.Name + "\n" + randomPoem.Text;
                 randomPoem.Text = randomPoemText;
             }
             else
@@ -44,6 +44,7 @@ namespace SilverAgePoetryDB
         {
             PoemsWindow poemsWindow = new PoemsWindow();
             poemsWindow.Show();
+            this.Close();
         }
 
         private void AuthorsButton_Click(object sender, RoutedEventArgs e)
