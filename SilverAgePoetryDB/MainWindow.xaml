@@ -8,10 +8,10 @@
         Title="MainWindow" Height="518" Width="868.525">
     <Grid>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Добро пожаловать в информационно-справочную систему по поэзии серебряного века!" VerticalAlignment="Top" Height="42" Width="841" FontSize="20" IsEnabled="False" TextAlignment="Center"/>
-        <Button x:Name="PoemsButton" Content="Стихи" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="240" Height="64" FontSize="36" FontWeight="Bold" Click="button_Click"/>
+        <Button x:Name="PoemsButton" Content="Стихи" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="240" Height="64" FontSize="36" FontWeight="Bold" Click="PoemsButton_Click"/>
         <Button x:Name="AuthorsButton" Content="Поэты" HorizontalAlignment="Left" Margin="10,266,0,0" VerticalAlignment="Top" Width="240" Height="64" FontSize="36" FontWeight="Bold" Click="AuthorsButton_Click"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="344,90,0,0" TextWrapping="Wrap" Text="Случайный стих:" VerticalAlignment="Top" Height="26" Width="507" FontStyle="Italic" FontSize="16"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="356" Margin="344,121,0,0" VerticalAlignment="Top" Width="507" FontSize="16"/>
+        <TextBox x:Name="randomPoem" HorizontalAlignment="Left" Height="356" Margin="344,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="507" FontSize="20" Cursor="ScrollNS" IsReadOnly="True"/>
 
     </Grid>
 </Window>

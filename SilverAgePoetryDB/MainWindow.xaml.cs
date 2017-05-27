@@ -22,26 +22,33 @@ namespace SilverAgePoetryDB
         public MainWindow()
         {
             InitializeComponent();
-            DB.Poems = new List<Poem>();
 
+            DB.ReadPoems();
+            DB.ReadAuthors();
+
+            if (DB.Poems.Any())
+            {
+                string randomPoemText;
+                Random rnd = new Random();
+                Poem randomPoem = DB.Poems[rnd.Next(DB.Poems.Count)];
+                randomPoemText = randomPoem.Name + "\n" + randomPoem.Author.Name + "\n" + randomPoem.Text;
+                randomPoem.Text = randomPoemText;
+            }
+            else
+            {
+                textBlock1.Text = "Похоже, в базе пока нет ни одного стиха!";
+            }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void PoemsButton_Click(object sender, RoutedEventArgs e)
         {
-            Poem poem = new SilverAgePoetryDB.Poem();
-            poem.Name = "AAA";
-            poem.Text = "BBB";
-            DB.AddPoem(poem);
-        }
-
-        private void PoemssButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            PoemsWindow poemsWindow = new PoemsWindow();
+            poemsWindow.Show();
         }
 
         private void AuthorsButton_Click(object sender, RoutedEventArgs e)
         {
-            DB.DeletePoem(DB.Poems[0]);
+
         }
     }
 }

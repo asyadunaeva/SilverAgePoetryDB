@@ -97,6 +97,7 @@ namespace SilverAgePoetryDB
 
         static public bool ReadPoems()
         {
+            Poems = new List<Poem>();
             try
             {
                 string[] PoemFiles = Directory.GetFiles("Poems\\");
@@ -119,6 +120,7 @@ namespace SilverAgePoetryDB
 
         static public bool ReadAuthors()
         {
+            Authors = new List<Author>();
             try
             {
                 string[] AuthorFiles = Directory.GetFiles("Authors\\");
