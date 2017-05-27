@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SilverAgePoetryDB
 {
-    class Poem
+    [Serializable]
+    [XmlRoot("Poem")]
+    public class Poem
     {
         public string Name { get; set; }
         public Author Author { get; set; }

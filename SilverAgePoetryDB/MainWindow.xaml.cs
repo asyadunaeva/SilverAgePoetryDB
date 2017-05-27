@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,22 @@ namespace SilverAgePoetryDB
         public MainWindow()
         {
             InitializeComponent();
+            DB.Poems = new List<Poem>();
+
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PoemssButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AuthorsButton_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

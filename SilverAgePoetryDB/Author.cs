@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SilverAgePoetryDB
 {
-    class Author
+    [Serializable]
+    public class Author
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -14,6 +15,6 @@ namespace SilverAgePoetryDB
         public DateTime DeathDate { get; set; }
         public string BirthPlace { get; set; }
         public string Biography { get; set; }
-        public Dictionary<int, Poem> Poems { get; set; }
+        public List<Poem> Poems { get; set; }
     }
 }
