@@ -23,11 +23,39 @@ namespace SilverAgePoetryDB
         public ObservableCollection<string> AuthorsListBox { get; set; }
         public Author selectedAuthor { get; set; }
         public Poem PoemToAdd { get; set; }
+        public bool isChanged { get; set; }
+
+        public PoemAddWindow(Poem passedPoem)
+        {
+            InitializeComponent();
+
+            PoemToAdd = passedPoem;
+            nameBox.Text = PoemToAdd.Name;
+            writingStartBox.Text = PoemToAdd.WritingStartDate;
+            writingEndBox.Text = PoemToAdd.WritingEndDate;
+            publicationBox.Text = PoemToAdd.PublicationDate;
+            poemTextBox.Text = PoemToAdd.Text;
+
+            DB.DeletePoem(PoemToAdd);
+
+            AuthorsListBox = new ObservableCollection<string>();
+
+            PoemToAdd = new SilverAgePoetryDB.Poem();
+
+            foreach (Author author in DB.Authors)
+            {
+                AuthorsListBox.Add(author.Surname + " " + author.Name + " " + author.MiddleName);
+            }
+            authorsBox.DataContext = AuthorsListBox;
+
+            isChanged = true;
+        }
 
         public PoemAddWindow()
         {
             InitializeComponent();
             AuthorsListBox = new ObservableCollection<string>();
+
             PoemToAdd = new SilverAgePoetryDB.Poem();
 
             foreach (Author author in DB.Authors)
@@ -40,6 +68,7 @@ namespace SilverAgePoetryDB
         private void authorsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedAuthor = DB.Authors.Find(x => x.Surname + " " + x.Name + " " + x.MiddleName == authorsBox.SelectedItem.ToString());
+            PoemToAdd.Author = selectedAuthor;
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
@@ -90,7 +119,7 @@ namespace SilverAgePoetryDB
 
             if (check)
             {
-                PoemToAdd.Name = nameBox.Text;
+                PoemToAdd.Name = nameBox.Name;
                 PoemToAdd.WritingStartDate = writingStartBox.Text;
                 PoemToAdd.WritingEndDate = writingEndBox.Text;
                 PoemToAdd.PublicationDate = publicationBox.Text;

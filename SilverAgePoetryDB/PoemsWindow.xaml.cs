@@ -29,8 +29,6 @@ namespace SilverAgePoetryDB
 
             NamesListBox = new ObservableCollection<string>();
 
-            DB.Poems.Add(new SilverAgePoetryDB.Poem { Name = "я помню чудное мгновение" });
-
             foreach (Poem poem in DB.Poems)
             {
                 NamesListBox.Add(poem.Name);
@@ -57,8 +55,11 @@ namespace SilverAgePoetryDB
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string selectedPoemName = listBox.SelectedItem.ToString();
-            selectedPoem = DB.Poems.Find(x => x.Name == selectedPoemName);
+            if (listBox.SelectedItem != null)
+            {
+                string selectedPoemName = listBox.SelectedItem.ToString();
+                selectedPoem = DB.Poems.Find(x => x.Name == selectedPoemName);
+            }
 
             poemNameField.Text = selectedPoem.Name ?? null;
             if (DB.Authors.Contains(selectedPoem.Author))
@@ -100,6 +101,28 @@ namespace SilverAgePoetryDB
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedPoem != null)
+            {
+                DB.DeletePoem(DB.Poems.Find(x => x.Name == selectedPoem.Name));
+
+                NamesListBox.Clear();
+
+                foreach (Poem poem in DB.Poems)
+                {
+                    NamesListBox.Add(poem.Name);
+                }
+                listBox.DataContext = NamesListBox;
+            }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            PoemAddWindow poemChangeWindow = new PoemAddWindow(selectedPoem);
+            poemChangeWindow.Show();
         }
     }
 }

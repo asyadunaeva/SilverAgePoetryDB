@@ -21,7 +21,7 @@ namespace SilverAgePoetryDB
                 Poems.Add(poem);
                 XmlSerializer serializer = new XmlSerializer(typeof(Poem));
                 string PoemFilePath = "Poems\\$NAME$.xml";
-                PoemFilePath = PoemFilePath.Replace("$NAME$", Poems.IndexOf(poem).ToString());
+                PoemFilePath = PoemFilePath.Replace("$NAME$", Poems.IndexOf(poem).ToString());  
                 File.Create("PoemFilePath");
                 TextWriter writer = new StreamWriter(PoemFilePath);
                 serializer.Serialize(writer, poem);
@@ -66,10 +66,10 @@ namespace SilverAgePoetryDB
                 string PoemFilePath = "Poems\\$NAME$.xml";
                 PoemFilePath = PoemFilePath.Replace("$NAME$", Poems.IndexOf(poem).ToString());
                 File.Delete(PoemFilePath);
-                Poems.Remove(poem);
+                DB.Poems.Remove(poem);
                 if (!File.Exists(PoemFilePath))
                 {
-                    return true;
+                    return true;  
                 }
                 return false;
             }

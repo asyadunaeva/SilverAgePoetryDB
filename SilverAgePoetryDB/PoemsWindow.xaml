@@ -20,8 +20,8 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" TextChanged="textBox_TextChanged"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="278" Margin="10,80,0,0" VerticalAlignment="Top" Width="258" ItemsSource="{Binding}" SelectionChanged="listBox_SelectionChanged"/>
         <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="163,363,0,0" VerticalAlignment="Top" Width="105" Height="28" Click="AddButton_Click"/>
-        <Button x:Name="EditButton" Content="Изменить" HorizontalAlignment="Left" Margin="163,396,0,0" VerticalAlignment="Top" Width="105" Height="28"/>
-        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="163,429,0,0" VerticalAlignment="Top" Width="105" Height="28"/>
+        <Button x:Name="EditButton" Content="Изменить" HorizontalAlignment="Left" Margin="163,396,0,0" VerticalAlignment="Top" Width="105" Height="28" Click="EditButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="163,429,0,0" VerticalAlignment="Top" Width="105" Height="28" Click="DeleteButton_Click"/>
         <Button x:Name="GoBackButton" Content="Назад" HorizontalAlignment="Left" Margin="10,429,0,0" VerticalAlignment="Top" Width="105" Height="28" Click="GoBackButton_Click"/>
     </Grid>
 </Window>
